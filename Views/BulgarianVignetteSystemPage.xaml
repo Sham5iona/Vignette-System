@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VignetteSystem.Views.BulgarianVignetteSystemPage"
+             xmlns:viewmodel="clr-namespace:VignetteSystem.ViewModel">
+
+    <ContentPage.BindingContext>
+        <viewmodel:BulgarianVignetteSystemViewModel/>
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout>
+        
+        <Label Text="Global Vignette Checking System" 
+               HorizontalTextAlignment="Center" 
+               FontSize="24" 
+               FontAttributes="Bold"
+               Margin="20" />
+        
+        <Picker x:Name="picker" WidthRequest="300" Margin="10"
+                ItemsSource="{Binding Countries}"
+                Title="Select the country to check the vignette">
+           
+        </Picker>
+
+        <Entry Text="{Binding PlateNumber}" Placeholder="Plate number..." 
+               WidthRequest="200" Margin="10"/>
+
+        <Button Text="Check" WidthRequest="100" HorizontalOptions="Center" Margin="10"
+                Command="{Binding ActivateApiCommand}"/>
+        
+    </VerticalStackLayout>
+</ContentPage>
